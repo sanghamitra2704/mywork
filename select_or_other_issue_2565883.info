@@ -1,0 +1,16 @@
+name = Select or Other Issue 2565883
+core = 7.x
+package = Features
+dependencies[] = features
+dependencies[] = list
+dependencies[] = options
+dependencies[] = select_or_other
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_base][] = field_media_code
+features[field_base][] = field_same_code
+features[field_instance][] = node-temp-body
+features[field_instance][] = node-temp-field_media_code
+features[field_instance][] = node-temp-field_same_code
+features[node][] = temp

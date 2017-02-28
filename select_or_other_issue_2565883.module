@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Code for the Select or Other Issue 2565883 feature.
+ */
+
+include_once 'select_or_other_issue_2565883.features.inc';
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function select_or_other_issue_2565883_form_temp_node_form_alter(&$form, &$form_state, $form_id) {
+ // Prevents html5 validation which was causing the error "An invalid form control with name='' is not focusable" on the browser's javascript console
+	$form['#attributes']['novalidate'] = '1';  
+
+	$form['field_media_code']['#states'] = array(
+        'disabled' => array(
+          ':input[name="field_same_code[und]"]' => array('checked' => TRUE),
+        ),
+        'visible' => array(
+          ':input[name="field_same_code[und]"]' => array('checked' => FALSE),
+        ),
+        'required' => array(
+          ':input[name="field_same_code[und]"]' => array('checked' => FALSE),
+        ),
+      );
+	  
+}
